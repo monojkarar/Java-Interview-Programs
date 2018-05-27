@@ -17,22 +17,22 @@ public class LookAndSaySequence {
 				if (s.length() == 1) {
 					sb = sb.append(count).append(s);
 				} else {
-					char[] ch = s.toCharArray();
 					count = 1;
 					int j = 0;
-					for (; j < ch.length - 1; j++) {
-						if (ch[j] == ch[j + 1]) {
+					while (j < s.length() - 1) {
+						if (s.charAt(j) == s.charAt(j + 1)) {
 							count++;
 						} else {
-							sb = sb.append(count).append(ch[j]);
+							sb = sb.append(count).append(s.charAt(j));
 							count = 1;
 						}
+						j++;
 					}
-					sb = sb.append(count).append(ch[j]);
+					sb = sb.append(count).append(s.charAt(j));
 				}
 				s = sb.toString();
-				System.out.println(s);
 				sb = sb.delete(0, sb.length());
+				System.out.println(s);
 			}
 		} else {
 			System.out.println("Empty Data. Please provide some data.");
